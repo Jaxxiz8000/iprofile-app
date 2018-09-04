@@ -1,0 +1,38 @@
+<div class="jumbo full-profile-body">
+    <div class="full-profile-li box-shadow">
+        <h2>Full Profile</h2>
+        <p>
+            - Personal Information (Name, Job Title)
+            - Personal Statement
+            - Skills
+            - Certifications
+            - Past Project Experience (Project Role Title, Role description - brief)
+        </p>
+    </div>
+    <div class="box-shadow">
+        <p>
+            Personal Statement
+        </p>
+    </div>
+    <div class="box-shadow">
+        Skills
+        - Skill name
+    </div>
+    <div class="box-shadow">
+        Certifications
+        - Certification Name 
+        - (Potentially Year obtained)
+    </div>
+    <div class="box-shadow">
+        <p>
+            Past Project Experience
+            - Project Name
+            - Role description
+        </p>
+    </div>
+    {{!-- <div class="box-shadow"> --}}
+    {{!-- </div> --}}
+    {{#each model as |skillUnit|}}
+        {{skill-listing skill=skillUnit}}
+    {{/each}}
+</div>

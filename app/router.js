@@ -7,6 +7,9 @@ const Router = EmberRouter.extend({
 });
 
 Router.map(function() {
+  this.route('full-profile');
+  this.route('skills');
+  this.route('certifications');
 });
 
 export default Router;
