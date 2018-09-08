@@ -1,8 +1,9 @@
 import Mixin from '@ember/object/mixin';
 
-//import pdfMake from 'ember-pdfmake';
+import pdfMake from 'ember-pdfmake';
 
 export default Mixin.create({
+
     pdfForElement(args) {
         function ParseContainer(cnt, e, p, styles, hd) {
             var elements = [];
@@ -250,36 +251,36 @@ function CreateParagraph(b) {
         ParseHtml(content, header, document.getElementById(args.id).outerHTML);
         docDefinition.content = content;
         docDefinition.pageMargins = [40, 170, 40, 0] ;
-        docDefinition.header = (currentPage)=>{
-            //header object goes here
-        }
+        // docDefinition.header = (currentPage)=>{
+        //     //header object goes here
+        // }
         return docDefinition;
-    },
-
-    actions:{
-        exportPDF() {
-            let args = {id: '.full-body-profile', id: '' };
-            let doc = this.pdfForElement(args);
-            pdfMake.creatPdf(doc).download(this.get('filename'));
-        },
-    
-        previewPDF() {
-            const targetElement = document.querySelector('#full-profile-body');
-            const iframe = document.createElement('iframe');
-            let args = {id: '.full-body-profile' };
-            let doc = this.pdfForElement(args);
-            const pdfDocGenerator = pdfMake.createPdf(doc);
-            pdfDocGenerator.getBuffer( function (buffer){
-                const dataUrl = URL.createObjectURL(new Blob([buffer], {
-                    type: "application/pdf"
-                }));
-    
-                iframe.src = dataUrl;
-                iframe.width = "100%";
-                iframe.height = "600px";
-                targetElement.appendChild(iframe);
-            }) 
-        }
     }
+
+    // actions:{
+    //     exportPDF() {
+    //         let args = {id: '.full-body-profile'};
+    //         let doc = this.pdfForElement(args);
+    //         pdfMake.creatPdf(doc).download(this.get('filename'));
+    //     },
+    
+    //     previewPDF() {
+    //         const targetElement = document.querySelector('#full-profile-body');
+    //         const iframe = document.createElement('iframe');
+    //         let args = {id: '.full-body-profile' };
+    //         let doc = this.pdfForElement(args);
+    //         const pdfDocGenerator = pdfMake.createPdf(doc);
+    //         pdfDocGenerator.getBuffer( function (buffer){
+    //             const dataUrl = URL.createObjectURL(new Blob([buffer], {
+    //                 type: "application/pdf"
+    //             }));
+    
+    //             iframe.src = dataUrl;
+    //             iframe.width = "100%";
+    //             iframe.height = "600px";
+    //             targetElement.appendChild(iframe);
+    //         }) 
+    //     }
+    // }
     
 });

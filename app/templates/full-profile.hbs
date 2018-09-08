@@ -1,17 +1,17 @@
-<div class="jumbo full-profile-body">
-    <section>
+<div id="container" class="jumbo full-profile-body">
+    <div>
         <button class="button" {{action "exportAsPdf"}}>Save Page as PDF</button>
-    </section>
+    </div>
 
-    <section>
+    <div>
     <div class="card box-shadow">
         {{#each model.personal_information as |skillUnit|}}
             {{personal-information-listing pinformation=skillUnit}}
         {{/each}}
     </div>
-    </section>
+    </div>
 
-    <section>
+    <div>
     <div class="card box-shadow">
         <p>
             {{#each model.personal_statement as |pstatement|}}
@@ -19,32 +19,32 @@
             {{/each}}
         </p>
     </div>
-    </section>
+    </div>
 
-    <section>
+    <div>
     <div class="card box-shadow">
     <h3>Skills</h3>
     {{#each model.skills as |skillUnit|}}
         {{skill-listing skill=skillUnit}}
     {{/each}}
     </div>
-    </section>
+    </div>
     
-    <section>
+    <div>
     <div class="card box-shadow">
     <h3>Certifications</h3>
     {{#each model.certifications as |certificationUnit|}}
         {{certification-listing certification=certificationUnit}}
     {{/each}}
     </div>
-    </section>
+    </div>
 
-    <section>
+    <div>
     <div class="card box-shadow">
     <h3>Past Experience</h3>
     {{#each model.past_project_exp as |pastProjectUnit|}}
         {{past-project-exp-listing pastProjectExp=pastProjectUnit}}
     {{/each}}
     </div>
-    </section>
+    </div>
 </div>

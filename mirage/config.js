@@ -47,15 +47,15 @@ export default function() {
     }
   }];
 
-  let personal_information = [{
-    type: 'personal-information',
-    id: 1,
-    attributes: {
-      firstName: 'James',
-      secondName: 'Scott',
-      jobTitle: 'Engineer'
-    }
-  }];
+  // let personal_information = [{
+  //   type: 'personal-information',
+  //   id: 1,
+  //   attributes: {
+  //     firstName: 'James',
+  //     secondName: 'Scott',
+  //     jobTitle: 'Engineer'
+  //   }
+  // }];
 
 this.get('/skills', function(db, request) {
   if(request.queryParams.title !== undefined) {
