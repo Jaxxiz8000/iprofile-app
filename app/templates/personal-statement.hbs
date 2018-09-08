@@ -1,0 +1,9 @@
+<div class="card box-shadow">
+    <div class="certifications-li">
+        <p>
+        {{#each model as |statementUnit|}}
+            {{personal-statement-listing pstatement=statementUnit}}
+        {{/each}}
+        </p>
+    </div>
+</div>

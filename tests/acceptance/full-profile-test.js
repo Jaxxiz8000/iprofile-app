@@ -3,18 +3,18 @@ import { visit, currentURL, click } from '@ember/test-helpers';
 import { setupApplicationTest } from 'ember-qunit';
 import setupMirage from 'ember-cli-mirage/test-support/setup-mirage';
 
-module('Acceptance | Acceptance testing', function(hooks) {
+module('Acceptance | Acceptance testing full-profile', function(hooks) {
   setupApplicationTest(hooks);
   setupMirage(hooks);
-
-  test('should list skills on the homepage', async function (assert){
-    await visit('/');
-    assert.equal(this.element.querySelectorAll('.skill-listing').length, 3, "Should display three listings of skills.");
-  });
 
   test('should show full-profile as the home page', async function(assert){
     await visit('/');
     assert.equal(currentURL(), '/full-profile', 'should redirect automatically');
+  });
+
+  test('should list skills on the homepage', async function (assert){
+    await visit('/');
+    assert.equal(this.element.querySelectorAll('.skill-listing').length, 3, "Should display three listings of skills.");
   });
 
   test('should link to skills page', async function (assert){
@@ -30,3 +30,4 @@ module('Acceptance | Acceptance testing', function(hooks) {
   });
 
 });
+

@@ -1,0 +1,6 @@
+{
+  "name": "iprofile-app",
+  "dependencies": {
+    "pdfmake": "^0.1.38"
+  }
+}

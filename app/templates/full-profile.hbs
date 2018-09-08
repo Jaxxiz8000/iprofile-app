@@ -1,38 +1,50 @@
 <div class="jumbo full-profile-body">
-    <div class="full-profile-li box-shadow">
-        <h2>Full Profile</h2>
+    <section>
+        <button class="button" {{action "exportAsPdf"}}>Save Page as PDF</button>
+    </section>
+
+    <section>
+    <div class="card box-shadow">
+        {{#each model.personal_information as |skillUnit|}}
+            {{personal-information-listing pinformation=skillUnit}}
+        {{/each}}
+    </div>
+    </section>
+
+    <section>
+    <div class="card box-shadow">
         <p>
-            - Personal Information (Name, Job Title)
-            - Personal Statement
-            - Skills
-            - Certifications
-            - Past Project Experience (Project Role Title, Role description - brief)
+            {{#each model.personal_statement as |pstatement|}}
+                {{personal-statement-listing pstatement=pstatement}}
+            {{/each}}
         </p>
     </div>
-    <div class="box-shadow">
-        <p>
-            Personal Statement
-        </p>
-    </div>
-    <div class="box-shadow">
-        Skills
-        - Skill name
-    </div>
-    <div class="box-shadow">
-        Certifications
-        - Certification Name 
-        - (Potentially Year obtained)
-    </div>
-    <div class="box-shadow">
-        <p>
-            Past Project Experience
-            - Project Name
-            - Role description
-        </p>
-    </div>
-    {{!-- <div class="box-shadow"> --}}
-    {{!-- </div> --}}
-    {{#each model as |skillUnit|}}
+    </section>
+
+    <section>
+    <div class="card box-shadow">
+    <h3>Skills</h3>
+    {{#each model.skills as |skillUnit|}}
         {{skill-listing skill=skillUnit}}
     {{/each}}
+    </div>
+    </section>
+    
+    <section>
+    <div class="card box-shadow">
+    <h3>Certifications</h3>
+    {{#each model.certifications as |certificationUnit|}}
+        {{certification-listing certification=certificationUnit}}
+    {{/each}}
+    </div>
+    </section>
+
+    <section>
+    <div class="card box-shadow">
+    <h3>Past Experience</h3>
+    {{#each model.past_project_exp as |pastProjectUnit|}}
+        {{past-project-exp-listing pastProjectExp=pastProjectUnit}}
+    {{/each}}
+    </div>
+    </section>
 </div>

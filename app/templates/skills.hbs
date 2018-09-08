@@ -1,17 +1,8 @@
-<div class="jumbo skills-body">
-    <div class="skills-li">
-        <h2>Skills</h2>
-    {{!-- {{#skill-filter
-        filter=(action 'filterByName')
-        as |filteredResults|}}
-        <ul class="results">
-        {{#each model as |skillUnit|}}
-            <li>{{skill-listing skill=skillUnit}}</li>
-        {{/each}}
-        </ul>
-    {{/skill-filter}} --}}
-    </div>
-        {{#each model as |skillUnit|}}
+<div class="card box-shadow">
+    <h2>Skills</h2>
+    <p>
+    {{#each model as |skillUnit|}}
         {{skill-listing skill=skillUnit}}
     {{/each}}
+    </p>
 </div>

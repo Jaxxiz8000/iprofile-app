@@ -1,11 +1,10 @@
-<div class="jumbo certification-body">
-    <div class="right tomstar"></div>
-    <div class="certifications-li">
-        <h2>Certifications</h2>
-        <p>
-        {{#each model as |skillUnit|}}
-            {{skill-listing skill=skillUnit}}
-        {{/each}}
-        </p>
-    </div>
+<div class="card box-shadow">
+    <h2>Certifications</h2>
+    <p>
+    {{#each model as |certificationUnit|}}
+        {{certification-listing certification=certificationUnit}}
+    {{/each}}
+    </p>
 </div>
+<button class="button" {{action "addCertification"}}>Add new</button>
+<button class="button right" {{action "deleteCertification"}}>Delete</button>

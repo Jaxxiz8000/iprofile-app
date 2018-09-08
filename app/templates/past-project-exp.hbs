@@ -1,0 +1,8 @@
+<div class="card box-shadow">
+    <h2>Past Experience</h2>
+    <p>
+    {{#each model as |pastProjectUnit|}}
+        {{past-project-exp-listing pastProjectExp=pastProjectUnit}}
+    {{/each}}
+    </p>
+</div>
