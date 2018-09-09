@@ -1,8 +1,26 @@
-<div class="card box-shadow">
-    <h2>Past Experience</h2>
-    <p>
-    {{#each model as |pastProjectUnit|}}
-        {{past-project-exp-listing pastProjectExp=pastProjectUnit}}
-    {{/each}}
-    </p>
+<div id="past-project-exp-container"> 
+    <div>
+        <button class="button" {{action "exportAsPdf"}}>Save Page as PDF</button>
+    </div>
+    <div class="card box-shadow">
+        <h2>Past Experience</h2>
+        <p>
+        {{#each model as |pastProjectUnit|}}
+            {{past-project-exp-listing pastProjectExp=pastProjectUnit}}
+        {{/each}}
+        </p>
+    </div>
 </div>
+<button class="button" {{action "toggleModal"}}>Add Past Project</button>
+
+{{#if isShowingModal}}
+  {{#modal-dialog onClose="toggleModal"
+                  targetAttachment="center"
+                  translucentOverlay=true}}
+    {{input class="" value=newRoleNAme placeholder="Enter Role name"}}
+    {{input class="" value=newRoleDesc placeholder="Enter Role Description"}}
+    <button {{action 'addPastProjectExp'}}>Add</button>
+  {{/modal-dialog}}
+{{/if}}
+
+<button class="button right" {{action "deleteCertification"}}>Delete</button>

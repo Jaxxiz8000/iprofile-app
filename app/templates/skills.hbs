@@ -1,4 +1,8 @@
-<div class="card box-shadow">
+<div id="skills-container">
+    <div>
+        <button class="button" {{action "exportAsPdf"}}>Save Page as PDF</button>
+    </div>
+    <div class="card box-shadow">
     <h2>Skills</h2>
     <p>
     {{#each model as |skillUnit|}}
@@ -6,3 +10,16 @@
     {{/each}}
     </p>
 </div>
+</div>
+<button class="button" {{action "toggleModal"}}>Add Skill</button>
+
+{{#if isShowingModal}}
+  {{#modal-dialog onClose="toggleModal"
+                  targetAttachment="center"
+                  translucentOverlay=true}}
+    {{input class="" value=newCertification placeholder="Enter Skill name"}}
+    <button {{action 'addSkill'}}>Add</button>
+  {{/modal-dialog}}
+{{/if}}
+
+<button class="button right" {{action "deleteSkill"}}>Delete</button>

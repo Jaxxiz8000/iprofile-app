@@ -7,11 +7,12 @@ export default Controller.extend(exportToPdf, {
 
     actions: {
             exportAsPdf() {
-            //pdfMake.createPdf({content: 'This is an sample PDF printed with pdfMake '}).download();
-            //this.actions.exportPDF();
+
             let args = {id: 'container'}
             const docDefinition = this.pdfForElement(args);
-            pdfMake.createPdf(docDefinition).download(this.get('filename'));
+            const filename = "iprofile.pdf";
+            pdfMake.createPdf(docDefinition).download(filename);
+            
         }
     },
 

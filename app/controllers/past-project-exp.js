@@ -9,9 +9,9 @@ export default Controller.extend(exportToPdf, {
         this.toggleProperty('isShowingModal');
       },
       exportAsPdf() {
-        let args = {id: 'skills-container'}
+        let args = {id: 'past-project-exp-container'}
         const docDefinition = this.pdfForElement(args);
-        const filename = "skills.pdf";
+        const filename = "pastProjectExp.pdf";
         pdfMake.createPdf(docDefinition).download(filename);
         }
     },

@@ -1,6 +1,7 @@
 import Mixin from '@ember/object/mixin';
 
 import pdfMake from 'ember-pdfmake';
+import { none } from '@ember/object/computed';
 
 export default Mixin.create({
 
@@ -250,11 +251,12 @@ function CreateParagraph(b) {
         var docDefinition = {}; 
         ParseHtml(content, header, document.getElementById(args.id).outerHTML);
         docDefinition.content = content;
-        docDefinition.pageMargins = [40, 170, 40, 0] ;
+        // docDefinition.pageMargins = [40, 170, 40, 0] ;
         // docDefinition.header = (currentPage)=>{
         //     //header object goes here
+        //     currentPage = none;
         // }
-        return docDefinition;
+         return docDefinition;
     }
 
     // actions:{

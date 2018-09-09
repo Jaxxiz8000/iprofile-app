@@ -1,19 +1,23 @@
-<div class="card box-shadow">
-    <h2>Certifications</h2>
-    <p>
-    {{#each model as |certificationUnit|}}
-        {{certification-listing certification=certificationUnit}}
-    {{/each}}
-    </p>
+<div id="certification-container">
+    <div>
+        <button class="button" {{action "exportAsPdf"}}>Save Page as PDF</button>
+    </div>
+    <div class="card box-shadow">
+        <h2>Certifications</h2>
+        {{#each model as |certificationUnit|}}
+            {{certification-listing certification=certificationUnit}}
+        {{/each}}
+    </div>
 </div>
-<button {{action "toggleModal"}}>Toggle Modal</button>
+<button class="button" {{action "toggleModal"}}>Add Certification</button>
 
 {{#if isShowingModal}}
   {{#modal-dialog onClose="toggleModal"
                   targetAttachment="center"
                   translucentOverlay=true}}
-    Oh hai there!
+    {{input class="" value=newCertification placeholder="Enter Certification name"}}
+    <button {{action 'addCertification'}}>Add</button>
   {{/modal-dialog}}
 {{/if}}
-<button class="button" {{action "openModal" 'modal' model}}>Add new</button>
+
 <button class="button right" {{action "deleteCertification"}}>Delete</button>

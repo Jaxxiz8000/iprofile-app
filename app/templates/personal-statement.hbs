@@ -1,10 +1,11 @@
-<div class="card box-shadow">
-    <div class="certifications-li">
-        <p>
+<div id="pstatement-container">
+    <div>
+        <button class="button" {{action "exportAsPdf"}}>Save Page as PDF</button>
+    </div>
+    <div class="card box-shadow">
         {{#each model as |statementUnit|}}
             {{personal-statement-listing pstatement=statementUnit}}
         {{/each}}
-        </p>
     </div>
 </div>
 <button class="button" {{action "updateStatement"}}>Update</button>
