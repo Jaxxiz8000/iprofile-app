@@ -13,6 +13,24 @@ export default Controller.extend(exportToPdf, {
         const docDefinition = this.pdfForElement(args);
         const filename = "pastProjectExp.pdf";
         pdfMake.createPdf(docDefinition).download(filename);
-        }
+        },
+        addPastProjectExp() {
+          let addRoleName = this.get('newRoleName');
+          let addDescription = this.get('newRoleDesc')
+          let newPastProjectExp = this.store.createRecord('past-project-exp', {
+              rolename: addRoleName,
+              roledescription: addDescription
+          })
+          newPastProjectExp.save();
+      },
+      deleteIsClicked() {
+          this.toggleProperty('deleteIsClicked');
+      },
+      deleteIsDone() {
+          this.toggleProperty('deleteIsClicked');
+      },
+      toggleChildren() {
+        this.toggleProperty('toggleChildren');
+      }
     },
 });

@@ -1,26 +1,40 @@
 <div id="past-project-exp-container"> 
-    <div>
-        <button class="button" {{action "exportAsPdf"}}>Save Page as PDF</button>
-    </div>
     <div class="card box-shadow">
         <h2>Past Experience</h2>
-        <p>
-        {{#each model as |pastProjectUnit|}}
-            {{past-project-exp-listing pastProjectExp=pastProjectUnit}}
-        {{/each}}
-        </p>
+        {{#if deleteIsClicked}}
+            {{#each model as |pastProjectUnit|}}
+                {{delete-past-project-exp-listing pastProjectExp=pastProjectUnit}}
+            {{/each}}
+        {{else}}
+            {{#each model as |pastProjectUnit|}}
+                {{past-project-exp-listing pastProjectExp=pastProjectUnit}}
+            {{/each}}
+        {{/if}}
     </div>
 </div>
-<button class="button" {{action "toggleModal"}}>Add Past Project</button>
+
+{{#floating-mobile-buttons position="top left" as |toggleChildren|}}
+    {{#floating-mobile-child-buttons label="Save Page as PDF"}}
+      <button class="button" {{action "exportAsPdf"}}>PDF</button>
+    {{/floating-mobile-child-buttons}}
+    {{#floating-mobile-child-buttons label="Add"}}
+       <button class="button" {{action "toggleModal"}}>+</button>
+    {{/floating-mobile-child-buttons}}
+    {{#floating-mobile-child-buttons label="Delete"}}
+        {{#if deleteIsClicked}}
+            <button class="button" {{action "deleteIsDone"}}>Done</button>
+        {{else}}
+            <button class="button" {{action "deleteIsClicked"}}>X</button>
+        {{/if}}
+    {{/floating-mobile-child-buttons}}
+{{/floating-mobile-buttons}}
 
 {{#if isShowingModal}}
   {{#modal-dialog onClose="toggleModal"
                   targetAttachment="center"
                   translucentOverlay=true}}
-    {{input class="" value=newRoleNAme placeholder="Enter Role name"}}
+    {{input class="" value=newRoleName placeholder="Enter Role name"}}
     {{input class="" value=newRoleDesc placeholder="Enter Role Description"}}
     <button {{action 'addPastProjectExp'}}>Add</button>
   {{/modal-dialog}}
 {{/if}}
-
-<button class="button right" {{action "deleteCertification"}}>Delete</button>

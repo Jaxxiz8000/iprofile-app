@@ -1,7 +1,7 @@
 <div id="container" class="jumbo full-profile-body">
-    <div>
-        <button class="button" {{action "exportAsPdf"}}>Save Page as PDF</button>
-    </div>
+    {{#floating-mobile-buttons position="top left"}}
+        <button class="button" {{action "exportAsPdf"}}>PDF</button>
+    {{/floating-mobile-buttons}}
     <div class="card box-shadow">
         {{#each model.personal_information as |skillUnit|}}
             {{personal-information-listing pinformation=skillUnit}}

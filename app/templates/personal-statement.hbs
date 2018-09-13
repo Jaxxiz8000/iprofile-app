@@ -1,12 +1,19 @@
 <div id="pstatement-container">
-    <div>
-        <button class="button" {{action "exportAsPdf"}}>Save Page as PDF</button>
-    </div>
     <div class="card box-shadow">
         {{#each model as |statementUnit|}}
             {{personal-statement-listing pstatement=statementUnit}}
         {{/each}}
     </div>
 </div>
-<button class="button" {{action "updateStatement"}}>Update</button>
-<button class="button right" {{action "deleteStatement"}}>Delete</button>
+
+{{#floating-mobile-buttons position="top left"}}
+    {{#floating-mobile-child-buttons label="Save Page as PDF"}}
+      <button class="button" {{action "exportAsPdf"}}>PDF</button>
+    {{/floating-mobile-child-buttons}}
+    {{#floating-mobile-child-buttons label="Update"}}
+      <button class="button" {{action "updateStatement"}}>-></button>
+    {{/floating-mobile-child-buttons}}
+    {{#floating-mobile-child-buttons label="Delete"}}
+      <button class="button" {{action "deleteStatement"}}>x</button>
+    {{/floating-mobile-child-buttons}}
+{{/floating-mobile-buttons}}

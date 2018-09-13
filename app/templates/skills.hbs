@@ -1,25 +1,39 @@
 <div id="skills-container">
-    <div>
-        <button class="button" {{action "exportAsPdf"}}>Save Page as PDF</button>
-    </div>
     <div class="card box-shadow">
     <h2>Skills</h2>
-    <p>
-    {{#each model as |skillUnit|}}
-        {{skill-listing skill=skillUnit}}
-    {{/each}}
-    </p>
+    {{#if deleteIsClicked}}
+        {{#each model as |skillUnit|}}
+        {{delete-skill-listing skill=skillUnit}}
+        {{/each}}
+    {{else}}
+        {{#each model as |skillUnit|}}
+            {{skill-listing skill=skillUnit}}
+        {{/each}}
+    {{/if}}
+    </div>
 </div>
-</div>
-<button class="button" {{action "toggleModal"}}>Add Skill</button>
 
 {{#if isShowingModal}}
   {{#modal-dialog onClose="toggleModal"
                   targetAttachment="center"
                   translucentOverlay=true}}
-    {{input class="" value=newCertification placeholder="Enter Skill name"}}
+    {{input class="" value=newSkill placeholder="Enter Skill name"}}
     <button {{action 'addSkill'}}>Add</button>
   {{/modal-dialog}}
 {{/if}}
 
-<button class="button right" {{action "deleteSkill"}}>Delete</button>
+{{#floating-mobile-buttons position="top left" as |toggleChildren|}}
+    {{#floating-mobile-child-buttons label="Save Page as PDF"}}
+      <button class="button" {{action "exportAsPdf"}}>PDF</button>
+    {{/floating-mobile-child-buttons}}
+    {{#floating-mobile-child-buttons label="Add"}}
+       <button class="button" {{action "toggleModal"}} >+</button>
+    {{/floating-mobile-child-buttons}}
+    {{#floating-mobile-child-buttons label="Delete"}}
+        {{#if deleteIsClicked}}
+            <button class="button" {{action "deleteIsDone"}}>Done</button>
+        {{else}}
+            <button class="button" {{action "deleteIsClicked"}}>x</button>
+        {{/if}}
+    {{/floating-mobile-child-buttons}}
+{{/floating-mobile-buttons}}

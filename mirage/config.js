@@ -3,7 +3,7 @@ export default function() {
 
   let certifications = [{
     type: 'certifications',
-    id: 1,
+    id: 4,
     attributes: {
       title: 'Docker',
       catagory: 'Development'
@@ -57,23 +57,30 @@ export default function() {
   //   }
   // }];
 
-this.get('/skills', function(db, request) {
-  if(request.queryParams.title !== undefined) {
-    let filteredSkills = skills.filter(function(i) {
-      return i.attributes.title.toLowerCase().indexOf(request.queryParams.title.toLowerCase()) !== -1;
-    });
-    return { data: filteredSkills };
-  } else {
-    return { data: skills }
-  }
-}); 
+// this.get('/skills', function(db, request) {
+//   if(request.queryParams.title !== undefined) {
+//     let filteredSkills = skills.filter(function(i) {
+//       return i.attributes.title.toLowerCase().indexOf(request.queryParams.title.toLowerCase()) !== -1;
+//     });
+//     return { data: filteredSkills };
+//   } else {
+//     return { data: skills }
+//   }
+// }); 
+
+this.get('/skills');
+
+this.post('/skills');
   
 
   // end of skills.
 
-  this.get('/certifications', function() {
-    return { data: certifications }
-  });
+  // this.get('/certifications', function() {
+  //   return { data: certifications }
+  // });
+
+  this.get('/certifications');
+  this.post('/certifications');
 
   this.get('/personal-information', function() {
     return { data: [{
@@ -99,30 +106,32 @@ this.get('/skills', function(db, request) {
     };
   });
 
-  this.get('/past-project-exps', function() {
-    return { data: [
-      {
-        type: 'past-project-exps',
-        id: 1,
-        attributes: {
-          rolename: "DevOps Engineer",
-          roledescription: "worked as an engineer for a firm"
-        }
-      }, {
-        type: 'past-project-exps',
-        id: 2,
-        attributes: {
-          rolename: "Project Manager",
-          roledescription: "worked as an manager for a firm"
-        }
-      }, {
-        type: 'past-project-exps',
-        id: 3,
-        attributes: {
-          rolename: "Java Engineer",
-          roledescription: "worked as an engineer for a firm"
-        }
-      }]
-    };
-  });
+  // this.get('/past-project-exps', function() {
+  //   return { data: [
+  //     {
+  //       type: 'past-project-exps',
+  //       id: 1,
+  //       attributes: {
+  //         rolename: "DevOps Engineer",
+  //         roledescription: "worked as an engineer for a firm"
+  //       }
+  //     }, {
+  //       type: 'past-project-exps',
+  //       id: 2,
+  //       attributes: {
+  //         rolename: "Project Manager",
+  //         roledescription: "worked as an manager for a firm"
+  //       }
+  //     }, {
+  //       type: 'past-project-exps',
+  //       id: 3,
+  //       attributes: {
+  //         rolename: "Java Engineer",
+  //         roledescription: "worked as an engineer for a firm"
+  //       }
+  //     }]
+  //   };
+  // });
+  this.get('/past-project-exps');
+  this.post('/past-project-exps');
 }
